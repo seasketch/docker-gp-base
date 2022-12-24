@@ -1,11 +1,11 @@
 # Docker image for seasketch geoprocessing workspace
 
-`docker-gp-base` builds a reliable base image for creating more specialized containers for geospatial applications.  It is based on `perrygeo/docker-gdal-base`
+`docker-gp-base` builds a reliable base image for creating more specialized containers for geospatial applications.  Based on `perrygeo/docker-gdal-base`
 
+- builds some core libraries from source where full control is required
 - relies on the official `debian` images and direct descendants like `python`.
 - is built and distributed with the computing resources provided by github and dockerhub.
 - uses only free and open source software.
-- uses versions of core libraries required by the SeaSketch Geoprocessing library, built from source code for full control.
 - is optimized for (but not obsessed with) runtime speed and small image size.
 - has a reasonably full set of configuration options and drivers.
 - is tested regularly, both with an automated test suite and in production systems.
@@ -100,3 +100,6 @@ COPY --from=builder /usr/local /usr/local
 RUN ldconfig
 ```
 
+## License
+
+`docker-gp-base` source code and associated images on dockerhub available as **public domain**
