@@ -107,7 +107,7 @@ ENV SPATIALITE_VERSION 5.0.0
 RUN wget -q https://www.gaia-gis.it/gaia-sins/libspatialite-${SPATIALITE_VERSION}.tar.gz
 RUN apt-get install -y libminizip-dev
 RUN tar -xzvf libspatialite-${SPATIALITE_VERSION}.tar.gz && cd libspatialite-${SPATIALITE_VERSION} \
-    && ./configure --prefix=/usr/local \
+    && ./configure --prefix=/usr/local --build=aarch64-unknown-linux-gnu \
     && echo "building SPATIALITE ${SPATIALITE_VERSION}..." \
     && make --quiet -j${CPUS} && make --quiet install
 
