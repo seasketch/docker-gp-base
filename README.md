@@ -12,7 +12,7 @@
 - remain freely available.
 - for this base image,
   - leverage caching by using separate `RUN` steps.
-  - provide common shared libraries, a full C/C++ build environment, and Python 3.6.
+  - provide common shared libraries, a full C/C++ build environment, and Python.
   - install all compiled binaries and libs to `/usr/local`.
 - for subsequent production images that inherit from it
   - use multistage builds to minimize the final image size; you don't need carry around the entire build environment in production.
@@ -20,6 +20,10 @@
 See [`seasketch/docker-gp-base` on Dockerhub](https://hub.docker.com/r/seasketch/docker-gp-base)
 
 ## Packages and version numbers
+
+Operating system:
+
+* Debian Bullseye slim with Python 3.11
 
 The following libraries built from source:
 
@@ -35,12 +39,12 @@ GDAL_VERSION 3.3.2
 SQLITE_VERSION 3330000
 ```
 
+## GDAL
+
 GDAL 3.3.2 is used because it supports flatgeobuf files, and works with flatgeobuf JS library v3.17.4 that geoprocessing lib is locked on for now
 
-## GDAL Drivers
-
+Drivers:
 - `GTiff` GeoTIFF with WEBP, ZSTD compression options.
-- `JP2OpenJPEG` JPEG-2000 driver based on OpenJPEG library
 - see `gdalinfo --formats` for the full list
 
 ## Using the image directly
