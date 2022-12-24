@@ -3,7 +3,7 @@ name: ci
 on:
   push:
     branches:
-      - "publish-test"
+      - "main"
 
 jobs:
   docker:
@@ -30,6 +30,6 @@ jobs:
         with:
           context: .
           platforms: linux/amd64,linux/arm64
-          push: false
+          push: true
           tags: |
             seasketch/geoprocessing-base:latest
